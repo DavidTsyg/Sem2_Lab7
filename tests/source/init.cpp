@@ -24,7 +24,7 @@ SCENARIO ("ColumnTest(ShouldWork)"){
 		rv = 1;
 	else
 		rv = 0;
-	REQUIRE (rv == 0);
+	REQUIRE (rv == 1);
 }
 SCENARIO ("ColumnTest(Shouldn'tWork)"){
 	vector <vector<int>> v = { { 1, 2, 3 },{ 4, 5, 6 },{ 7, 8, 9 } };
@@ -47,7 +47,7 @@ SCENARIO ("RowTest(ShouldWork)"){
 		rv = 1;
 	else
 		rv = 0;
-	REQUIRE (rv == 0);
+	REQUIRE (rv == 1);
 }
 SCENARIO ("RowTest(ShouldтэеWork)"){
 	vector <vector<int>> v = { { 1, 2, 3 },{ 4, 5, 6 },{ 7, 8, 9 } };
