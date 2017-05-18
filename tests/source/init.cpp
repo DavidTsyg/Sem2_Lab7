@@ -49,7 +49,7 @@ SCENARIO ("RowTest(ShouldWork)"){
 		rv = 0;
 	REQUIRE (rv == 0);
 }
-SCENARIO ("RowTest(ShouldWork)"){
+SCENARIO ("RowTest(ShouldтэеWork)"){
 	vector <vector<int>> v = { { 1, 2, 3 },{ 4, 5, 6 },{ 7, 8, 9 } };
 	Matrix<int> m;
 	m.fill_by_vector(v);
