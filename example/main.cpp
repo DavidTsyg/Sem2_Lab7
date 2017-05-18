@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	Matrix m1, m2;
+	Matrix<int> m1, m2;
 	vector <vector<int>> v = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 	m1.fill_by_vector(v);
 	m2.fill_by_vector(v);
