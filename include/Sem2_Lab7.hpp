@@ -2,7 +2,6 @@
 // Lab7.cpp : Defines the entry point for the console application.
 //
 #include <memory>
-#include "stdafx.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
