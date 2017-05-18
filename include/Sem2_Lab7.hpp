@@ -83,6 +83,7 @@ public:
 		if (!file.is_open())
 		{
 			cout << "File could not be opened" << endl;
+			return 0;
 		}
 		else
 		{
