@@ -33,7 +33,7 @@ public:
 	{
 		return matrix_data;
 	}
-	void fill_by_vector( vector<vector<T>>& v)
+	int fill_by_vector( vector<vector<T>>& v)
 	{
 		matrix_data = v;
 		for (auto i = (++matrix_data.begin()); i != matrix_data.end(); ++i)
@@ -42,9 +42,10 @@ public:
 			{
 				cout << "The amount of numbers in rows isn't equal!" << endl;
 				matrix_data.clear();
-				break;
+				return 0;
 			}
 		}
+		return 1;
 	}
 	vector<T>* row( unsigned int i)
 	{
@@ -77,7 +78,7 @@ public:
 			return nullptr;
 		}
 	} 
-	void fill_by_file( string infile) {
+	int fill_by_file( string infile) {
 		ifstream file;
 		file.open(infile.c_str());
 		if (!file.is_open())
@@ -104,11 +105,12 @@ public:
 				{
 					cout << "The amount of numbers in rows isn't equal!" << endl;
 					matrix_data.clear();
-					break;
+					return 0;
 				}
 			}
 		}
-		file.close();		
+		file.close();	
+		return 1;
 	}
 	void print()
 	{
