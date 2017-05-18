@@ -2,8 +2,13 @@
 #include <Sem2_Lab7.hpp>
 #include <catch.hpp>
 
-SCENARIO ("constructorTest"){
-	Matrix<int> mat(3,3);
-	
+SCENARIO ("ConstructorTest(FileExists)"){
+	Matrix<int> m;
+	rv = m.fill_by_file("test.txt");
 	REQUIRE (rv == 1);
+}
+SCENARIO ("ConstructorTest(FileDoesn'tExist)"){
+	Matrix<int> m;
+	rv = m.fill_by_file("test.txt");
+	REQUIRE (rv == 0);
 }
