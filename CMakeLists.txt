@@ -11,6 +11,9 @@ set(SOURCES ${PROJECT_SOURCE_DIR}/sources/Sem2_Lab7.cpp)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 
+file(COPY ${PROJECT_SOURCE_DIR}/tests/source/test.txt
+     DESTINATION $EXECUTABLE_OUTPUT_PATH/test.txt)
+
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 add_library (${PROJECT_NAME} STATIC ${SOURCES})
