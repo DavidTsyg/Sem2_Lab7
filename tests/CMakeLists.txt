@@ -13,7 +13,8 @@ file(GLOB ${PROJECT_NAME}_sources "${CMAKE_CURRENT_SOURCE_DIR}/source/*cpp")
 find_package(${TESTS_FOR_PROJECT})
 include_directories(${${TESTS_FOR_PROJECT}_INCLUDE_DIRS}})
 
-
+file(COPY ${CMAKE_SOURCE_DIR}/source/test.txt
+        DESTINATION ${PROJECT_BINARY_DIR}/bin/test.txt)
 
 include_directories(${CPM_INCLUDE_DIRS})
 
