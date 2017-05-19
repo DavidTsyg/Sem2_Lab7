@@ -18,7 +18,7 @@ add_custom_command(
         TARGET foo POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
                 ${CMAKE_SOURCE_DIR}/tests/source/test.txt
-                ${CMAKE_CURRENT_BINARY_DIR}/test.txt)
+                ${CMAKE_BINARY_DIR}/bin/test.txt)
 
 include_directories(${CPM_INCLUDE_DIRS})
 
