@@ -10,9 +10,12 @@ option(BUILD_SHARED_LIBS "Build shared instead of static library" OFF)
 
 file(GLOB ${PROJECT_NAME}_sources "${CMAKE_CURRENT_SOURCE_DIR}/source/*cpp")
 
-file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/source/test.txt"
-        DESTINATION "${PROJECT_BINARY_DIR}/bin/test.txt")
-
+add_custom_command(
+        TARGET foo POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+                ${CMAKE_SOURCE_DIR}/source/test.txt
+                ${CMAKE_BINARY_DIR}/bin/test.txt)
+                
 find_package(${TESTS_FOR_PROJECT})
 include_directories(${${TESTS_FOR_PROJECT}_INCLUDE_DIRS}})
 
