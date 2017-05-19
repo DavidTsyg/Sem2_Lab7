@@ -8,8 +8,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 option(BUILD_SHARED_LIBS "Build shared instead of static library" OFF)
 
-file(GLOB ${PROJECT_NAME}_sources "${CMAKE_CURRENT_SOURCE_DIR}/source/*")
+file(GLOB ${PROJECT_NAME}_sources "${CMAKE_CURRENT_SOURCE_DIR}/source/*cpp")
 
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/test.txt
+        DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/test.txt)
 
 find_package(${TESTS_FOR_PROJECT})
 include_directories(${${TESTS_FOR_PROJECT}_INCLUDE_DIRS}})
