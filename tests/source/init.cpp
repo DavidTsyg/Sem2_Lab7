@@ -8,12 +8,6 @@ SCENARIO ("ConstructorTest(VectorSuits)"){
 	int rv = m.fill_by_vector(v);
 	REQUIRE (rv == 1);
 }
-SCENARIO ("ConstructorTest(File)"){
-	//vector <vector<int>> v = {{1, 2, 3},{4, 5, 1},{1, 2, 2}};
-	Matrix<int> m;
-	int rv = m.fill_by_file("test.txt");
-	REQUIRE (rv == 1);
-}
 SCENARIO ("ConstructorTest(VectorDoesn'tSuit)"){
 	vector <vector<int>> v = {{1, 3},{4, 5, 6},{7, 8, 9}};
 	Matrix<int> m;
