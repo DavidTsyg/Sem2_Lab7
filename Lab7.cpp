@@ -83,6 +83,7 @@ public:
 		if (!file.is_open())
 		{
 			cout << "File could not be opened" << endl;
+			return 0;
 		}
 		else
 		{
@@ -111,6 +112,7 @@ public:
 		file.close();
 		return 1;
 	}
+
 	void print()
 	{
 		for (auto i = matrix_data.begin(); i != matrix_data.end(); ++i)
@@ -122,10 +124,11 @@ public:
 			cout << endl;
 		}
 	}
-	Matrix sub( Matrix& m2)
+	template <typename U>
+	Matrix<T> sub( Matrix<U>& m2)
 	{
-		Matrix output;
-		Matrix m1;
+		Matrix<T> output;
+		Matrix<T> m1;
 		m1.fill_by_vector(matrix_data);
 		vector<vector<T>> buf1;
 		vector<T> buf2;
@@ -147,10 +150,11 @@ public:
 		buf1.clear();
 		return output;
 	}
-	Matrix mul( Matrix& m2)
+	template <typename U>
+	Matrix<T> mul( Matrix<U>& m2)
 	{
-		Matrix output;
-		Matrix m1;
+		Matrix<T> output;
+		Matrix<T> m1;
 		m1.fill_by_vector(matrix_data);
 		vector<vector<T>> buf1;
 		vector<T> buf2;
@@ -178,16 +182,19 @@ public:
 		buf1.clear();
 		return output;
 	}
-	Matrix operator+( Matrix& m2)
+	template <typename U>
+	Matrix<T> operator+( Matrix<U>& m2)
 	{
 		return sub(m2);
 	}
-	Matrix operator*( Matrix& m2)
+	template <typename U>
+	Matrix<T> operator*( Matrix<U>& m2)
 	{
 		return mul(m2);
 	}
 	bool operator==( Matrix& m2)
 	{
+
 		if (matrix_data == m2.get_raw_data())
 			return 1;
 		else
@@ -226,15 +233,20 @@ istream& operator >> (istream &in, Matrix<T>& m1)
 
 int main()
 {
-	vector <vector<int>> v = { { 1, 2, 3 },{ 4, 5, 6 },{ 7, 8, 9 } };
-	vector <vector<int>> v1 = { { 2, 4, 6 },{ 8, 10, 12 },{ 14, 16, 18 } };
-	Matrix<int> m1, m2;
-	m1.fill_by_vector(v);
-	m2.fill_by_vector(v);
-	if ((m1 + m2).get_raw_data() == v1)
-		cout << 1;
-	else
-		cout << 2;
+	Matrix<char> m1;
+	Matrix<int> m2;
+	m1.fill_by_file("test.txt");
+	m2.fill_by_file("test2.txt");
+	cout << "This is the first matrix" << endl;
+	cout << m1;
+	cout << "This is the second matrix" << endl;
+	cout << m2;
+	cout << "This is the sum of the matrices" << endl;
+	cout << m1 + m2;
+	cout << "Make the first matrice equal the result of multiplication of the matrices" << endl;
+	m1 = m1 * m2;
+	cout << m1;
+	//cout << 'a' + 'b'<< endl;
 	system("pause");
 	return 0;
 }
